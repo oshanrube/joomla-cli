@@ -1,0 +1,14 @@
+<?php
+$filelist = unserialize(file_get_contents('lib/filedump.dat'));
+foreach($filelist as $filename => $content) {
+
+$folder = 'mod_'.$app['name_safe_lower'].'/'.dirname($filename);
+	$data = gzuncompress($content);
+	//make head file
+	$from 	= array('HelloWorld','Hello Wold','helloworld','HELLOWORLD');
+	$to 	= array($app['name_safe'],$app['name'],$app['name_safe_lower'],$app['name_safe_upper']);
+
+	$filename = str_replace('helloworld',$app['name_safe_lower'],$filename);
+	//$newFileList[$filename] = str_replace($from,$to,$data);
+	file_put_contents('mod_'.$app['name_safe_lower'].'/'.$filename,str_replace($from,$to,$data));
+}
