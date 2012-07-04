@@ -50,11 +50,12 @@ $folders['site'] 		= array("site",
 	"site/views","site/views/updhelloworld","site/views/updhelloworld/tmpl","site/views/helloworld","site/views/helloworld/tmpl");
 $folders['site-language'] 	= array("site/language","site/language/en-GB");
 //create  folders
-mkdir('com_'.strtolower($app['name_safe']),0700);
+$component_folder = 'com_'.strtolower($app['name_safe']).'/'; 
+mkdir($component_folder,0700);
 foreach($folders as $category => $items){
 	if(in_array($category, $accepted_categories)){
 		foreach($items as $folderName){
-			$folderName = 'com_'.strtolower($app['name_safe']).'/'.$folderName;
+			$folderName = $component_folder.$folderName;
 			$folderName = str_replace('helloworld',$app['name_safe_lower'],$folderName);
 			if(!is_dir($folderName))
 			mkdir($folderName,0700);

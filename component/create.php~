@@ -13,7 +13,6 @@ include('lib/starters.php');
 //zip
 $zip_command = 'zip -r com_'.strtolower($app['name_safe']).'.zip com_'.strtolower($app['name_safe']);
 $output = shell_exec($zip_command);
-echo "$output\n";
+echo "<pre>$output</pre>";
 //delete
 $output = shell_exec('rm -rf com_'.strtolower($app['name_safe']));
-echo "$output\n";

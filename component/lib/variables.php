@@ -1,22 +1,31 @@
 <?php
 $app['name'] = '';
-$app['author'] = '';
-$app['author_email'] = '';
-$app['author_url'] = '';
+$app['author'] = 'Oshan Rube';
+$app['author_email'] = 'oshanrube@gmail.com';
+$app['author_url'] = 'http://about.me/oshanr';
 $app['description'] = '';
 
 while(strlen($app['name']) < 2){
 	echo "what is the name of the component?";
 	$app['name'] = fgets(STDIN);
 }
-echo "Author Name : ";
-$app['author'] = fgets(STDIN);
+echo "Author Name (".$app['author']."): ";
+$input = fgets(STDIN);
+if($input != ''){
+	$app['author'] = $input; 
+}
 
-echo "Author Email : ";
-$app['author_email'] = fgets(STDIN);
+echo "Author Email (".$app['author_email']."): ";
+$input = fgets(STDIN);
+if($input != ''){
+	$app['author_email'] = $input; 
+}
 
-echo "Author Website : ";
-$app['author_url'] = fgets(STDIN);
+echo "Author Website (".$app['author_url']."): ";
+$input = fgets(STDIN);
+if($input != ''){
+	$app['author_url'] = $input; 
+}
 
 echo "component Description : ";
 $app['description'] = fgets(STDIN);
